@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #fff8f0;
+  color: #333;
+}
+
+.App {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #e85d04;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.dashboard {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 4px solid #e85d04;
+}
+
+.dashboard strong {
+  color: #e85d04;
+  font-size: 1.2rem;
+}
+
+.dashboard ul {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.dashboard ul li {
+  padding: 4px 0;
+  border-bottom: 1px solid #f0e0d0;
+  font-size: 0.9rem;
+}
+
+.add-expense {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 4px solid #f48c06;
+}
+
+.add-expense form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.add-expense input,
+.add-expense select {
+  padding: 8px 12px;
+  border: 1px solid #f0d0b0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background: #fff8f0;
+}
+
+.add-expense button {
+  padding: 8px 20px;
+  background: #e85d04;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.add-expense button:hover {
+  background: #dc2f02;
+}
+
+.expense-list {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 4px solid #faa307;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #fce8d0;
+  font-size: 0.9rem;
+}
+
+th {
+  color: #e85d04;
+  font-weight: 600;
+}
+
+.expense-list button {
+  padding: 4px 10px;
+  background: #dc2f02;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.expense-list button:hover {
+  background: #9d0208;
+}
