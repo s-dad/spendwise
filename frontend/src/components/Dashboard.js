@@ -1,10 +1,10 @@
 import React from 'react';
 
 function Dashboard({ expenses }) {
-  const total = expenses.reduce((sum, e) => sum + e.amount, 0);
+ const total = expenses.reduce((sum, e) => sum + parseFloat(e.amount), 0);
 
   const byCategory = expenses.reduce((acc, e) => {
-    acc[e.category] = (acc[e.category] || 0) + e.amount;
+    acc[e.category] = (acc[e.category] || 0) + parseFloat(e.amount);
     return acc;
   }, {});
 

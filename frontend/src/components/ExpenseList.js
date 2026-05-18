@@ -23,7 +23,7 @@ function ExpenseList({ expenses, onDelete }) {
             <tr key={expense.id}>
               <td>{expense.date}</td>
               <td>{expense.category}</td>
-              <td>${expense.amount.toFixed(2)}</td>
+              <td>${parseFloat(expense.amount).toFixed(2)}</td>
               <td>{expense.note || '-'}</td>
               <td>
                 <button onClick={() => onDelete(expense.id)}>Delete</button>

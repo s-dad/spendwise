@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Spendwise Backend
+
+Globals:
+  Function:
+    Timeout: 10
+    Runtime: python3.11
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref ExpensesTable
+  Api:
+    Cors:
+      AllowMethods: "'GET,POST,DELETE,OPTIONS'"
+      AllowHeaders: "'Content-Type'"
+      AllowOrigin: "'*'"
+
+Resources:
+
+  ExpensesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: spendwise-expenses
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+
+  AddExpenseFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/add_expense/
+      Handler: app.lambda_handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ExpensesTable
+      Events:
+        AddExpense:
+          Type: Api
+          Properties:
+            Path: /expenses
+            Method: post
+
+  GetExpensesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/get_expenses/
+      Handler: app.lambda_handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ExpensesTable
+      Events:
+        GetExpenses:
+          Type: Api
+          Properties:
+            Path: /expenses
+            Method: get
+
+  DeleteExpenseFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/delete_expense/
+      Handler: app.lambda_handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ExpensesTable
+      Events:
+        DeleteExpense:
+          Type: Api
+          Properties:
+            Path: /expenses/{id}
+            Method: delete
+
+Outputs:
+  ApiUrl:
+    Description: API Gateway endpoint URL
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
