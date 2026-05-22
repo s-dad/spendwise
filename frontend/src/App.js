@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { withAuthenticator, Button } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import AddExpense from './components/AddExpense';
 import ExpenseList from './components/ExpenseList';
 import Dashboard from './components/Dashboard';
 import { getExpenses, addExpense, deleteExpense } from './api';
 import './App.css';
 
-function App() {
+function App({ signOut, user }) {
   const [expenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,7 +48,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Spendwise</h1>
+      <div className="header">
+        <h1>Spendwise</h1>
+        <Button onClick={signOut}>Sign Out</Button>
+      </div>
       <Dashboard expenses={expenses} />
       <AddExpense onAdd={handleAdd} />
       <ExpenseList expenses={expenses} onDelete={handleDelete} />
@@ -55,4 +59,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
