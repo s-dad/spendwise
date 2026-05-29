@@ -1,8 +1,8 @@
 # Spendwise
 
-A serverless personal budget tracker built on AWS.
+A serverless personal budget tracker built on AWS. 
 
-## Stack
+### Stack
 - **Frontend**: React → S3 + CloudFront
 - **Backend**: Python Lambda + API Gateway
 - **Database**: DynamoDB
@@ -10,11 +10,10 @@ A serverless personal budget tracker built on AWS.
 - **Infrastructure**: AWS SAM
 - **CI/CD**: GitHub Actions
 
-## Architecture
+### Architecture
 ![Architecture](docs/architecture.png)
 
-## Features
-- Add expenses by category, date, and amount
+### Features
+- Add expenses by category, date, and amount and delete it
 - Dashboard with total spent and category breakdown
-- Delete expenses
 - Secure login via Cognito
