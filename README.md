@@ -3,7 +3,11 @@
 A serverless personal budget tracker built on AWS.
 
 ## Why This Project
-I built Spendwise to get hands-on experience with AWS serverless architecture in one cohesive project. Rather than isolated labs, I wanted something I could deploy end to end — with real auth, a real database, and a real CI/CD pipeline. Every service used here maps directly to AWS SAA exam topics and cloud ops role requirements.
+I wanted to build something real. Not follow a tutorial, not complete a lab with predefined steps actually sit down with a blank repo and figure it out.
+
+Serverless was the area I wanted to understand deeply. I had studied the individual services but had never connected them together into something that actually worked. I wanted to know what happens when a request leaves a browser and travels through CloudFront, gets checked by Cognito, hits API Gateway, triggers a Lambda function, and lands in DynamoDB. The only way to really understand that is to build it.
+
+A budget tracker was the right scope small enough to finish, real enough to matter. I made every decision myself: which services to use, how to structure the backend, how to handle auth, how to define infrastructure as code. When things broke and they did. I had to figure out why.
 
 ## Stack
 - **Frontend**: React → S3 + CloudFront
