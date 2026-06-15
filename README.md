@@ -27,26 +27,26 @@ A budget tracker was the right scope small enough to finish, real enough to matt
 - Secure login via Cognito
 
 ## Screenshots
+## Screenshots
 ![Login](docs/login-screenshot.png)
-![Dashboard](docs/screenshot-1.png)
-![Expenses](docs/screenshot-2.png)
+![Dashboard](docs/Screenshot-1.png)
+![Expense Added](docs/screenshot-2.png)
 ![Delete Expense](docs/screenshot-3.png)
 
-
 ## What I Learned
-- **AWS SAM** defines the entire backend Lambda functions, DynamoDB table, API Gateway routes, and IAM roles — in a single `template.yaml`. One command deploys everything.
-- **CORS errors** are browser security enforcement, not frontend bugs. The fix always lives on the API side.
-- **DynamoDB** returns numeric values as strings in some SDK versions. Always cast with `parseFloat()` before doing math.
-- **Cognito app clients** for browser-based apps must be public with no client secret client secrets are for server-side apps only.
-- **GitHub Actions** secrets keep AWS credentials out of code while still enabling automated deployments.
+- **AWS SAM**: defines the entire backend Lambda functions, DynamoDB table, API Gateway routes, and IAM roles.
+- **CORS errors**: are browser security enforcement, not frontend bugs. The fix always lives on the API side.
+- **DynamoDB**: returns numeric values as strings in some SDK versions. Always cast with `parseFloat()` before doing math.
+- **Cognito app clients**: for browser-based apps must be public with no client secret client secrets are for server-side apps only.
+- **GitHub Actions**: secrets keep AWS credentials out of code while still enabling automated deployments.
 
 
-## Note on Live Environment
+### Note 
 The AWS backend was decommissioned after development to manage cloud credit usage. The full infrastructure can be redeployed in minutes using `sam deploy`  the pipeline and IaC are fully intact.
 
 
 
-## Running Locally
+
 Clone the repo and install frontend dependencies:
 
 ```bash
