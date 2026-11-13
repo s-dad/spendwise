@@ -41,11 +41,19 @@ A budget tracker was the right scope small enough to finish, real enough to matt
 - **GitHub Actions**: secrets keep AWS credentials out of code while still enabling automated deployments.
 
 
-### Note 
-The AWS backend was decommissioned after development to manage cloud credit usage. The full infrastructure can be redeployed in minutes using `sam deploy`  the pipeline and IaC are fully intact.
+## Project Status & Future Improvements
 
+### Status
+I built and deployed Spendwise on AWS. The backend (Lambda, API Gateway, and DynamoDB) is defined with SAM and was deployed through GitHub Actions. I configured Cognito, S3, and CloudFront manually in the AWS console, outside SAM. After development I decommissioned the AWS environment to avoid ongoing costs. The SAM template and pipeline are still in the repo, so the backend can be redeployed with `sam deploy`. The deploy workflow now only runs when triggered manually.
 
+### Planned Improvements
+1. **Gate deploys on CI.** I want the deploy job to depend on CI passing, using `needs:` or `workflow_run`. Right now the two workflows run independently, so failing code could reach production.
+2. **Use GitHub OIDC instead of access keys.** I plan to replace the long-lived AWS access keys with OIDC and an IAM role scoped to this repo and the `main` branch. Nothing permanent would be stored in GitHub, and the credentials could only be used from this repo.
+3. **Skip deploys for docs-only commits.** A `paths:` filter would stop README and screenshot changes from triggering a deploy.
+4. **Prevent overlapping deploys.** A `concurrency:` group would make sure two quick pushes can't deploy at the same time.
+5. **Define the whole stack as code.** I want to bring Cognito, S3, and CloudFront into the SAM template, so the full environment can be recreated from the repo instead of partly by hand.
 
+## Getting Started
 
 Clone the repo and install frontend dependencies:
 

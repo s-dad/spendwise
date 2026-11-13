@@ -3,7 +3,7 @@
 version = 0.1
 
 [default.global.parameters]
-stack_name = "spendwise-backend "
+stack_name = "spendwise-backend"
 region = "us-east-1"
 
 [default.build.parameters]
