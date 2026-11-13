@@ -1,9 +1,10 @@
+# The AWS environment for this project has been decommissioned to avoid
+# ongoing charges, so this workflow can no longer deploy. It is kept for
+# reference and only runs when triggered manually.
 name: Deploy
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   deploy-backend:
